@@ -2,6 +2,7 @@ const {
   createPoll,
   getPoll,
   listPolls,
+  submitVote
 } = require("./repositories/pollRepository");
 const resolvers = {
   Query: {
@@ -16,6 +17,9 @@ const resolvers = {
     createPoll: async (_, args) => {
       return await createPoll(args.pollInput);
     },
+    submitVote: async (_, {pollId, pollOption}, context) => {
+      return await submitVote({pollId, pollOption, ipAddress: "0.0.0.0"});
+    }
   },
 };
 

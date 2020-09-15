@@ -27,8 +27,24 @@ const listPolls = async (id) => {
   }
 };
 
+const submitVote = async({pollId, pollOption, ipAddress}) => {
+  try {
+    const poll = await Poll.findById(pollId);
+    poll.votes = poll.votes || [];
+    poll.votes.push({
+      pollOption: pollOption,
+      ipAddress
+    })
+    console.log(poll);
+    return await poll.save();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   createPoll,
   getPoll,
   listPolls,
+  submitVote
 };

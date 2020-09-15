@@ -19,6 +19,7 @@ const typeDefs = gql`
 
   type Mutation {
     createPoll(pollInput: PollInput!): Poll!
+    submitVote(pollId: ID!, pollOption: String!): Poll!
   }
 `;
 
