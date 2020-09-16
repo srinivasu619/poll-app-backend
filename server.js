@@ -8,7 +8,14 @@ const resolvers = require("./resolvers");
 
 (async () => {
   const app = express();
-  const server = new ApolloServer({ typeDefs, resolvers });
+  const server = new ApolloServer({ typeDefs, resolvers , context: ({req}) => {
+    const ip = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || 
+    req.connection.remoteAddress || 
+    req.socket.remoteAddress || 
+    req.connection.socket.remoteAddress;
+    console.log(ip);
+    return ip;
+  }});
   server.applyMiddleware({ app });
 
   await mongoose.connect(process.env.MONGO_DB_URI, {

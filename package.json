@@ -4,7 +4,7 @@
   "description": "Backend Project Poll Application",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "srinivasu619 <Kotla Soma Srinivasu>",
   "license": "ISC",

@@ -6,10 +6,15 @@ const typeDefs = gql`
     listPolls: [Poll]
   }
 
+  type Vote{
+    pollOption: String!
+  }
+
   type Poll {
     _id: ID!
     topic: String!
     pollOptions: [String]!
+    votes: [Vote]
   }
 
   input PollInput {
