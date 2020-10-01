@@ -18,7 +18,7 @@ const resolvers = {
       return await createPoll(args.pollInput);
     },
     submitVote: async (_, {pollId, pollOption}, context) => {
-      return await submitVote({pollId, pollOption, ipAddress: "0.0.0.0"});
+      return await submitVote({pollId, pollOption, ipAddress: context.ipAddress});
     }
   },
 };
