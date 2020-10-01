@@ -35,7 +35,6 @@ const submitVote = async({pollId, pollOption, ipAddress}) => {
       pollOption: pollOption,
       ipAddress
     })
-    console.log(poll);
     return await poll.save();
   } catch (error) {
     console.error(error);
