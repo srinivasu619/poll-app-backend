@@ -8,6 +8,7 @@ const typeDefs = gql`
 
   type Vote{
     pollOption: String!
+    ipAddress: String!
   }
 
   type Poll {
